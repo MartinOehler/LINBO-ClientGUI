@@ -32,5 +32,11 @@ inside the LINBO Client:
    SITE_MEDIA is located at /srv/www/site_media/
    STATIC_URL is located at /srv/django/static
 
+ * Copy the wsgi-directory to 
+
+    /srv/django/
+
+   (check WSGIScriptAlias variable in site configuration).
+
  * The Client code is not using a database. Simply ignore the 
    database settings.
