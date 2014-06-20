@@ -1,4 +1,4 @@
-The following steps are necessary to install the LINBOv3 Server GUI
+The following steps are necessary to install the LINBOv3 Client GUI
 inside the LINBO Client:
 
  * Install and configure Apache 2 and mod wsgi. An example Apache 
