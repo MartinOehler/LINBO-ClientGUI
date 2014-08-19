@@ -576,13 +576,13 @@ def loadmaindiv(request):
                                 autostart='1'
                                 if autoSync.lower() == 'yes':
                                     if autoStartTimeout != '0':
-                                        print 'schedulelinbocmd("syncstart","'+name+'","'+str(autoStartTimeout.strip())+'");'
-                                        dajax.script('schedulelinbocmd("syncstart","'+name+'","'+str(autoStartTimeout.strip())+'");')
+                                        print 'schedulelinbocmd("quicksync","'+name+'","'+str(autoStartTimeout.strip())+'");'
+                                        dajax.script('schedulelinbocmd("quicksync","'+name+'","'+str(autoStartTimeout.strip())+'");')
                                         break
                                     else:
                                         # our default timeout
-                                        print 'schedulelinbocmd("syncstart","'+name+'","30");'
-                                        dajax.script('schedulelinbocmd("syncstart","'+name+'","30");')
+                                        print 'schedulelinbocmd("quicksync","'+name+'","30");'
+                                        dajax.script('schedulelinbocmd("quicksync","'+name+'","30");')
                                     break
                                 else:                             
                                     if autoStartTimeout != '0':
