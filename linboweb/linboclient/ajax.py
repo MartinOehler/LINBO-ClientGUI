@@ -71,7 +71,7 @@ def displaylog(request):
     line=''
 
     i=0
-    print "value of logline = "+str(logline)
+    # print "value of logline = "+str(logline)
 
     try:
         f=open("/tmp/linbo.log",'r')
@@ -221,6 +221,26 @@ def linbologin(request,
                 print e.output
             finally:
                 linbolog.close()
+
+        # try local auth after remote auth has failed with same password
+        if str(retval)!='0':
+            with open("/tmp/linbo.log","a") as linbolog:
+                try:
+                    arg='/usr/bin/mcrypt -d -F -k \"'+password+'\" </etc/linboauth.nc &>/dev/null'
+                    retval=os.system(arg)
+                    print "retval of mcrypt"+str(retval)
+
+                    args=shlex.split(arg)
+                    retval=subprocess.check_call(args,stdout=linbolog,stderr=linbolog)
+                    print "retval"+str(retval)
+                except subprocess.CalledProcessError,e:
+                    print "calledprocesserror in linbologin"
+                    print e.cmd
+                    print e.returncode
+                    print e.output
+                finally:
+                    linbolog.close()
+
 
         if str(retval)=='0':
             request.session['username'] = username
