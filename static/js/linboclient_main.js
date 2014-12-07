@@ -169,6 +169,7 @@ function cancelautostart() {
 function adminelementsvisible() {
     $(".managebutton").show();
     $(".createbutton").show();
+    $(".syncstartbutton").show();
     $(".uploadbutton").show();
     $(".vmmanagebutton").show();
 }
@@ -177,6 +178,7 @@ function adminelementsvisible() {
 function adminelementsinvisible() {
     $(".managebutton").hide();
     $(".createbutton").hide();
+    $(".syncstartbutton").hide();
     $(".uploadbutton").hide();
     $(".vmmanagebutton").hide();
 }
